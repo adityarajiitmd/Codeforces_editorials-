@@ -1,0 +1,32 @@
+Given a number n, print all primes smaller than or equal to n. It is also given that n is a small number. 
+
+Template:-
+
+const int N = 1e5 + 5;
+
+bool vis[N];
+
+void Sieve(){
+    memset(vis, true, sizeof(vis));
+    
+    vis[0] = vis[1] = false;
+    for(int i = 4 ; i < N ; i += 2)
+        vis[i] = false;
+    for(int i = 3 ; i < N / i ; i += 2){
+        if(!vis[i])continue;
+        for(int j = i * i ; j < N ; j += i + i)
+            vis[j] = false;
+    }
+}
+
+
+vector<int> primes;
+
+void Gen(){
+    for(int i = 2 ; i < N ; ++i)
+        if(vis[i])
+            primes.emplace_back(i);
+}
+
+// this will give all the prime number less than n.
+
