@@ -1,0 +1,26 @@
+Below code will give all the prime factor of a number:-
+
+void primeFactors(int n) 
+{
+    while (n % 2 == 0) 
+    { 
+        std::cout << 2 << " "; 
+        n = n / 2; 
+    } 
+
+    
+    for (int i = 3; i <= std::sqrt(n); i = i + 2) 
+    { 
+        // While i divides n, print i and divide n 
+        while (n % i == 0) 
+        { 
+            std::cout << i << " "; 
+            n = n / i; 
+        } 
+    } 
+ 
+    // This condition is to handle the case when n 
+    // is a prime number greater than 2 
+    if (n > 2) 
+        std::cout << n << " "; 
+}
